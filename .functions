@@ -1,0 +1,42 @@
+# terraform shortcuts for openmoney
+tfall() {
+    cd ~/Source/PlatformEngineering/terraform/ 
+    set +e
+    ./scripts/init.sh 
+    ./scripts/plan.sh
+    if [[ $? -eq 2 ]] || [[ "$2" == "config" ]]; then
+        # If there's an error whilst running apply, halt this script (set -e)
+        set -e
+        ./scripts/apply.sh
+    fi
+    set -e
+}
+
+
+cheat() {
+  # Ask cheat.sh website for details about a Linux command.
+  curl -m 10 "http://cheat.sh/${*}" 
+}
+
+wifi(){
+    nmcli dev wifi list
+}
+
+get_azure_ranges(){
+    set -e
+    INITIALURL="https://www.microsoft.com/en-in/download/confirmation.aspx?id=41653"
+    OUT=$(curl -s "${INITIALURL}" | grep -Eo '"https://[^"]*PublicIPs[^"]*"'|head -n 1|cut -d '"' -f 2)
+    curl -s -f "${OUT}"
+}
+
+wiki() {
+    ag -i -A 0 -B 0 -W 120 -m 1 -a -f --nonumbers --silent "$1" --color-match "34;49" /home/dave/Documents/KB/Open-Money.wiki/
+}
+
+wiki-update() {
+    workingdir=$(pwd)
+    cd /home/dave/Documents/KB/Open-Money.wiki/
+    git reset --hard HEAD > /dev/null 2>&1
+    git pull --ff-only
+    cd $workingdir
+}

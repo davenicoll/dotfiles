@@ -1,0 +1,4 @@
+export LC_ALL="C"
+export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+
+DOTNET_CLI_TELEMETRY_OPTOUT=1

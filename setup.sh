@@ -3,7 +3,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # standard toolchain
-sudo apt install curl wget exa git p7zip-full tilix build-essential silversearcher-ag fzf jq ffmpeg gnome-shell-extension-prefs zsh -y
+sudo apt install curl wget exa git neofetch p7zip-full tilix build-essential silversearcher-ag fzf jq ffmpeg gnome-shell-extension-prefs zsh -y
 
 # jetbrains mono
 # curl -o jetbrainsmono.zip -L "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.242/JetBrainsMono-2.242.zip"
