@@ -20,13 +20,13 @@ gsettings set org.gtk.Settings.FileChooser show-hidden true
 sudo apt update && sudo apt upgrade -y
 
 # standard toolchain
-sudo apt install curl wget exa git tilix build-essential silversearcher-ag fzf jq ffmpeg gnome-shell-extension-prefs zsh -y
+sudo apt install curl wget exa git p7zip-full tilix build-essential silversearcher-ag fzf jq ffmpeg gnome-shell-extension-prefs zsh -y
 
 # jetbrains mono
-curl -o jetbrainsmono.zip -L "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.242/JetBrainsMono-2.242.zip"
-mkdir "$HOME/.fonts"
-unzip -j jetbrainsmono.zip "fonts/ttf/*" -d "$HOME/.fonts"
-rm jetbrainsmono.zip
+# curl -o jetbrainsmono.zip -L "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.242/JetBrainsMono-2.242.zip"
+# mkdir "$HOME/.fonts"
+# unzip -j jetbrainsmono.zip "fonts/ttf/*" -d "$HOME/.fonts"
+# rm jetbrainsmono.zip
 
 # vscode
 curl -o vscode.deb -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
@@ -52,3 +52,5 @@ sudo apt-get update
 sudo add-apt-repository universe
 sudo apt-get install -y powershell
 
+gsettings set org.gnome.desktop.interface font-name 'SF Pro 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrains Mono 11'
