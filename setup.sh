@@ -1,5 +1,14 @@
 #!/bin/bash
 
+ln -sf "$PWD/.aliases" "$HOME/.aliases"
+ln -sf "$PWD/.bash_prompt" "$HOME/.bash_prompt"
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+#ln -sf "$PWD/.dircolors" "$HOME/.dircolors"
+ln -sf "$PWD/.exports" "$HOME/.exports"
+#ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
+ln -sf "$PWD/.path" "$HOME/.path"
+ln -sf "$PWD/.profile" "$HOME/.profile"
+
 # Ask for auth...
 sudo -v
 
@@ -29,8 +38,3 @@ source ./install/install-vscode.sh
 # Gnome
 source ./gnome/settings.sh
 source ./gnome/install-extensions.sh
-
-#ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
-#ln -sf "$PWD/.dircolors" "$HOME/.dircolors"
-#ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
-#ln -sf "$PWD/.profile" "$HOME/.profile"
