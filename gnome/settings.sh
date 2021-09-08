@@ -4,7 +4,7 @@
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface font-name 'SF Pro 11'
+gsettings set org.gnome.desktop.interface font-name 'SF Pro Display 11'
 gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrains Mono 11'
 
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
