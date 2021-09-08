@@ -15,23 +15,23 @@ sudo -v
 # Keep-alive: update existing sudo time stamp if set, otherwise do nothing.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-sudo apt update && sudo apt upgrade -y
+sudo apt update -qq && sudo apt upgrade -y -qq
 
 # Utils (needs to run before the other scripts, installs curl, wget, etc)
 source ./install/install-utils.sh
 
-exit
-
 # Cloud tools
-source ./install/install-awscli.sh
-source ./install/install-azcli.sh
+source ./install/install-aws.sh
+source ./install/install-az.sh
 
 # Package managers
 source ./install/install-brew.sh
 
 # Apps
+source ./install/install-flameshot.sh
 source ./install/install-gitkraken.sh
 source ./install/install-powershell.sh
+source ./install/install-tilix.sh
 source ./install/install-vscode.sh
 #source ./install/install-zsh.sh
 

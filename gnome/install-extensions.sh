@@ -19,6 +19,8 @@ do
 done
 gsettings set org.gnome.shell enabled-extensions "[${extensions::-1}]"
 
+rm gnome-shell-extension-installer.sh
+
 echo "****************************************************************"
 echo "You'll need to logout and log back in to enable gnome extensions"
 echo "****************************************************************"
