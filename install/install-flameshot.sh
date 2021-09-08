@@ -9,9 +9,9 @@ if [ $(which flameshot | grep 'bin' | wc -l) -eq 0 ]; then
     gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "'flameshot gui'"
 
     # configure flameshot settings
-    if ! test -d "$HOME/.config/flameshot/"; then mkdir $HOME/.config/flameshot; fi
+    if ! test -d "$HOME/.config/flameshot/"; then mkdir "$HOME/.config/flameshot"; fi
     if test -f "$HOME/.config/flameshot/flameshot.ini"; then rm "$HOME/.config/flameshot/flameshot.ini"; fi
-    tee -a $HOME/.config/flameshot/flameshot.ini &>/dev/null << EOF
+    tee -a "$HOME/.config/flameshot/flameshot.ini" &>/dev/null << EOF
 [General]
 contrastUiColor=#bf1c00
 disabledTrayIcon=false

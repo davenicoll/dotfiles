@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Symlink dotfiles
 ln -sf "$PWD/.aliases" "$HOME/.aliases"
 ln -sf "$PWD/.bash_prompt" "$HOME/.bash_prompt"
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
@@ -8,6 +9,10 @@ ln -sf "$PWD/.exports" "$HOME/.exports"
 #ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
 ln -sf "$PWD/.path" "$HOME/.path"
 ln -sf "$PWD/.profile" "$HOME/.profile"
+
+# Install fonts
+if ! test -d "$HOME/.fonts/"; then mkdir "$HOME/.fonts"; fi
+cp ./.fonts/* ~/.fonts/
 
 # Ask for auth...
 sudo -v
