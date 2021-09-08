@@ -21,3 +21,12 @@ gsettings set org.gnome.shell.extensions.ding show-trash false
 #gsettings set org.gnome.shell.extensions.ding show-home false
 #gsettings set org.gnome.shell.extensions.ding show-volumes false
 gsettings set org.gtk.Settings.FileChooser show-hidden true
+
+tee -a ./panel-osd.config &>/dev/null << EOF
+[/]
+test-notification=false
+x-pos=98.900000000000006
+y-pos=98.200000000000003
+EOF
+dconf load /com/gexperts/Tilix/ < ./panel-osd.config
+rm ./panel-osd.config
