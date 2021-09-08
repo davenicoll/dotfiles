@@ -18,3 +18,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# don't allow .extra to be accidentally committed :P
+.extra
