@@ -29,6 +29,7 @@ source ./install/install-utils.sh
 # Cloud tools
 source ./install/install-aws.sh
 source ./install/install-az.sh
+source ./install/install-terraform.sh
 
 # Package managers
 source ./install/install-brew.sh
