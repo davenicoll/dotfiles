@@ -1,12 +1,14 @@
+# look up cheat.sh for linux command examples (man, but more practical)
 cheat() {
-  # Ask cheat.sh website for details about a Linux command.
   curl -m 10 "http://cheat.sh/${*}" 
 }
 
+# show wifi access points
 wifi(){
     nmcli dev wifi list
 }
 
+# get azure public ip ranges
 get_azure_ranges(){
     set -e
     INITIALURL="https://www.microsoft.com/en-in/download/confirmation.aspx?id=41653"
@@ -14,12 +16,13 @@ get_azure_ranges(){
     curl -s -f "${OUT}"
 }
 
+# search through my documents uing silversurfer
 wiki() {
     ag -i -A 0 -B 0 -W 120 -m 1 -a -f --nonumbers --silent "$1" --color-match "34;49" $HOME/Documents/KB/
 }
 
 # outputs the operating system and architecture as a string, useful when downloading platform-specific binaries
-# usage: os-arch, os-arch _ ...will insert an underscore between the os and archi
+# usage: os-arch, os-arch _ ...will insert an underscore between the os and arch
 os-arch() {
     ARCHITECTURE=""
     case $(uname -m) in
