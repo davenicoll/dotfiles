@@ -15,5 +15,5 @@ get_azure_ranges(){
 }
 
 wiki() {
-    ag -i -A 0 -B 0 -W 120 -m 1 -a -f --nonumbers --silent "$1" --color-match "34;49" /home/dave/Documents/KB/Open-Money.wiki/
+    ag -i -A 0 -B 0 -W 120 -m 1 -a -f --nonumbers --silent "$1" --color-match "34;49" $HOME/Documents/KB/
 }
