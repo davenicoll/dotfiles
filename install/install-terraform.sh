@@ -4,6 +4,15 @@
 INSTALL_LOCATION="/usr/bin"
 TEMP_LOCATION="/tmp"
 
+ARCHITECTURE=""
+case $(uname -m) in
+    i386)   ARCHITECTURE="386" ;;
+    i686)   ARCHITECTURE="386" ;;
+    x86_64) ARCHITECTURE="amd64" ;;
+    arm)    dpkg --print-architecture | grep -q "arm64" && ARCHITECTURE="arm64" || ARCHITECTURE="arm" ;;
+esac
+OS=$(uname | tr '[:upper:]' '[:lower:]')
+
 # Determine latest version
 TF_LATEST_VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/hashicorp/terraform/releases/latest | awk -F / '{print substr($NF,2);}')
 
@@ -20,10 +29,11 @@ fi
 function download_and_install()
 {
     rm -f "$TEMP_LOCATION/terraform*" 2> /dev/null
-    DOWNLOAD_URI="https://releases.hashicorp.com/terraform/${TF_LATEST_VERSION}/terraform_${TF_LATEST_VERSION}_linux_amd64.zip"
+    DOWNLOAD_URI="https://releases.hashicorp.com/terraform/${TF_LATEST_VERSION}/terraform_${TF_LATEST_VERSION}_${OS}_${ARCHITECTURE}.zip"
+    echo "Downloading $DOWNLOAD_URI"
     wget -q "$DOWNLOAD_URI" -O "$TEMP_LOCATION/terraform.zip" 2>&1 
     if [ ! -f "$TEMP_LOCATION/terraform.zip" ] || [ ! -s "$TEMP_LOCATION/terraform.zip" ]; then
-        echo "ERROR: Couldn't download $DOWNLOAD_URI"
+        echo "ERROR: Download failed"
         exit 1
     fi
     unzip -o -q "$TEMP_LOCATION/terraform.zip" -d "$TEMP_LOCATION" 2>&1 
