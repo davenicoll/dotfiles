@@ -1,6 +1,6 @@
 # Personal dotfiles and scripts
 
-These dotfiles are intended to be used when first setting up Ubuntu/macOS. After a fresh install, I like to clone this repo into my home folder, and symlinks the dotfiles to make it easier to push any changes back to this repo. Everything works as expected in Ubuntu 21.04, macOS support coming soon...
+These dotfiles are intended to be used when first setting up Ubuntu/macOS. After a fresh install, I like to clone this repo into my home folder, and symlink the dotfiles to make it easier to push any changes back to this repo. Everything works as expected in Ubuntu 21.04, macOS support coming soon...
 
 ## Installation
 
