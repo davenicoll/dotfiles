@@ -9,5 +9,5 @@ Pilfer at your own peril :)
 ``` shell
 git clone https://github.com/davenicoll/dotfiles.git "$HOME/.dotfiles"
 cd ~/.dotfiles
-./setup.sh
+./install.sh
 ```
