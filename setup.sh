@@ -45,3 +45,5 @@ source ./install/install-vscode.sh
 # Gnome
 source ./gnome/settings.sh
 source ./gnome/install-extensions.sh
+
+echo "✨ Done"
