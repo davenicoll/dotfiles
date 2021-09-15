@@ -28,5 +28,5 @@ test-notification=false
 x-pos=98.900000000000006
 y-pos=98.200000000000003
 EOF
-dconf load /com/gexperts/Tilix/ < ./panel-osd.config
+dconf load /org/gnome/shell/extensions/panel-osd/ < ./panel-osd.config
 rm ./panel-osd.config
