@@ -20,7 +20,7 @@ TF_LATEST_VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com
 #TF_LATEST_VERSION="0.1.6"
 
 # Determine installed version
-if [ "$(terraform 2>/dev/null | grep -c 'Usage')" -eq 0 ]; then
+if ! command -v terraform &> /dev/null; then
     TF_CURRENT_VERSION=""
 else
     TF_CURRENT_VERSION=$(terraform --version | head -n +1 | awk -F Terraform '{print substr($NF,3);}')

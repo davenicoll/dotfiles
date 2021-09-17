@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(which flameshot | grep 'bin' | wc -l) -eq 0 ]; then
+if ! command -v flameshot &> /dev/null; then
     sudo apt install flameshot -y -qq
 
     # configure print screen to trigger flameshot

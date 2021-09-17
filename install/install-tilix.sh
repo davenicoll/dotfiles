@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(which tilix | grep 'bin' | wc -l) -eq 0 ]; then
+if ! command -v tilix &> /dev/null; then
     sudo apt install tilix -qq -y
     # Configure tilix
     tee -a ./tilix.config &>/dev/null << EOF

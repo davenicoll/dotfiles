@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(pwsh --version 2>/dev/null | grep 'PowerShell' | wc -l) -eq 0 ]; then
+if ! command -v pwsh &> /dev/null; then
     sudo apt-get update -qq
     sudo apt-get install -qq -y wget apt-transport-https software-properties-common
     wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb

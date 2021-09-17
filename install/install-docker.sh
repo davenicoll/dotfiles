@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(which docker | grep 'bin' | wc -l) -eq 0 ]; then
+if ! command -v docker &> /dev/null; then
     # use docker convenience installer
     curl -fsSL https://get.docker.com -o get-docker.sh
     chmod +x ./get-docker.sh
