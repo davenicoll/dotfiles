@@ -1,0 +1,7 @@
+# first american
+awslogin() {
+    export AWS_PAGER=""
+    aws-azure-login --profile cbre-np-avm-appdev
+    export AWS_PROFILE="cbre-np-infra"
+    aws sts get-caller-identity
+}

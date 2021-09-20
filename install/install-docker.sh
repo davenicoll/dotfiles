@@ -10,7 +10,7 @@ if [ $(which docker | grep 'bin' | wc -l) -eq 0 ]; then
     
     # Setup docker for rootless use
     dockerd-rootless-setuptool.sh install
-    sudo usermod -aG docker ${USER}
+    sudo usermod -aG docker "${USER}"
     sudo systemctl start docker
 else
     echo "docker already installed"
