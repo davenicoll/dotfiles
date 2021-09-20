@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(az --version 2>/dev/null | grep 'azure-cli' | wc -l) -eq 0 ]; then
+if ! command -v az &> /dev/null; then
     sudo apt-get update -qq
     sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg -y -qq
     curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null

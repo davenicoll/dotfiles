@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(which aws | grep 'bin' | wc -l) -eq 0 ]; then
+if ! command -v aws &> /dev/null; then
     sudo apt install awscli -qq -y
 else
     echo "aws already installed"
