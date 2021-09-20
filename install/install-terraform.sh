@@ -1,8 +1,7 @@
 #!/bin/bash
 # Should be run as sudo or with appropriate permissions to install the terraform binary
 
-INSTALL_LOCATION="/usr/bin"
-if [[ "$OSTYPE" == "darwin"* ]]; then INSTALL_LOCATION="/usr/local/bin"; fi
+INSTALL_LOCATION="/usr/local/bin"
 TEMP_LOCATION="/tmp"
 
 ARCHITECTURE=""
