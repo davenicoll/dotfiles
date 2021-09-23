@@ -22,7 +22,7 @@ gsettings set org.gnome.shell.extensions.ding show-trash false
 #gsettings set org.gnome.shell.extensions.ding show-volumes false
 gsettings set org.gtk.Settings.FileChooser show-hidden true
 
-tee -a ./panel-osd.config &>/dev/null << EOF
+tee ./panel-osd.config &>/dev/null << EOF
 [/]
 test-notification=false
 x-pos=98.900000000000006
@@ -30,3 +30,21 @@ y-pos=98.200000000000003
 EOF
 dconf load /org/gnome/shell/extensions/panel-osd/ < ./panel-osd.config
 rm ./panel-osd.config
+
+# set users profile picture
+username="$(whoami)"
+sudo tee /var/lib/AccountsService/users/dave &>/dev/null << EOF
+[User]
+Session=
+XSession=
+Icon=/var/lib/AccountsService/icons/$username
+SystemAccount=false
+
+[InputSource0]
+xkb=gb
+EOF
+sudo cp ./images/fe.png "/var/lib/AccountsService/icons/$username"
+
+# set users background wallpaper
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/.dotfiles/images/macOS.jpg"
+gsettings set org.gnome.desktop.background picture-options 'zoom'
