@@ -5,6 +5,6 @@ if ! command -v gitkraken &> /dev/null; then
     sudo dpkg -i gitkraken.deb
     rm gitkraken.deb
 else
-    echo "VS Code already installed"
+    echo "Gitkraken already installed"
     gitkraken -v
 fi
