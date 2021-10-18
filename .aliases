@@ -10,5 +10,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 #tools
 alias bettercap="sudo bettercap --caplet http-ui"
-
 alias watch="watch -b -c -d -n3"
+alias k="kubectl"
+# consider kubectl aliases for various commands https://github.com/ahmetb/kubectl-aliases
