@@ -22,6 +22,8 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button fals
 gsettings set org.gnome.shell.extensions.dash-to-dock force-straight-corner true
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-dominant-color true
 
+gsettings set  org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+
 gsettings set org.gnome.shell.extensions.ding show-trash false
 #gsettings set org.gnome.shell.extensions.ding show-home false
 #gsettings set org.gnome.shell.extensions.ding show-volumes false
