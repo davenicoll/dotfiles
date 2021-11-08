@@ -63,3 +63,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+if ! command -v pyenv &> /dev/null; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
+fi
