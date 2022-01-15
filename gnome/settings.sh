@@ -5,7 +5,6 @@ gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
-gsettings set org.gnome.desktop.peripherals.touchpad scroll-method 'two-finger-scrolling'
 gsettings set org.gnome.desktop.peripherals.touchpad click-method fingers
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -41,7 +40,7 @@ rm ./panel-osd.config
 
 # set users profile picture
 username="$(whoami)"
-sudo tee /var/lib/AccountsService/users/dave &>/dev/null << EOF
+sudo tee /var/lib/AccountsService/users/${username} &>/dev/null << EOF
 [User]
 Session=
 XSession=
@@ -51,6 +50,7 @@ SystemAccount=false
 [InputSource0]
 xkb=gb
 EOF
+sudo chmod uga+r /var/lib/AccountsService/users/${username}
 sudo cp ./images/fe.png "/var/lib/AccountsService/icons/$username"
 
 # set users background wallpaper

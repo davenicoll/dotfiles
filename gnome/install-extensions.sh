@@ -4,13 +4,13 @@
 curl --silent -o gnome-shell-extension-installer.sh -L https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer
 chmod +x gnome-shell-extension-installer.sh
 
-./gnome-shell-extension-installer.sh 779 > /dev/null 2>&1 # 779 - clipboard indicator
-./gnome-shell-extension-installer.sh 906 > /dev/null 2>&1 # 906 - sound input & output device chooser
-./gnome-shell-extension-installer.sh 708 > /dev/null 2>&1 # 708 - Panel OSD
-./gnome-shell-extension-installer.sh 800 > /dev/null 2>&1 # 800 - remove dropdown arrows
-./gnome-shell-extension-installer.sh 355 > /dev/null 2>&1 # 355 - status area horizontal spacing
-./gnome-shell-extension-installer.sh 1007 > /dev/null 2>&1 # 1007 - window is ready - notification remover
-./gnome-shell-extension-installer.sh 2 > /dev/null 2>&1 # 2 - frippery move clock
+./gnome-shell-extension-installer.sh 779 --yes # > /dev/null 2>&1 # 779 - clipboard indicator
+./gnome-shell-extension-installer.sh 906 --yes # > /dev/null 2>&1 # 906 - sound input & output device chooser
+./gnome-shell-extension-installer.sh 708 --yes # > /dev/null 2>&1 # 708 - Panel OSD
+./gnome-shell-extension-installer.sh 800 --yes # > /dev/null 2>&1 # 800 - remove dropdown arrows
+./gnome-shell-extension-installer.sh 355 --yes # > /dev/null 2>&1 # 355 - status area horizontal spacing
+./gnome-shell-extension-installer.sh 1007 --yes # > /dev/null 2>&1 # 1007 - window is ready - notification remover
+./gnome-shell-extension-installer.sh 2 --yes # > /dev/null 2>&1 # 2 - frippery move clock
 
 # get all of the extension UUIDs and enable them
 for item in $(ls -1 $HOME/.local/share/gnome-shell/extensions)
