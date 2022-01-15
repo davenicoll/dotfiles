@@ -1,1 +1,1 @@
-alias ls="exa -lag --git --group-directories-first"
+alias ls="exa -lag --group-directories-first"
