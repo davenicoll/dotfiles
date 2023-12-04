@@ -40,10 +40,11 @@ source ./install/install-gitkraken.sh
 source ./install/install-powershell.sh
 source ./install/install-tilix.sh
 source ./install/install-vscode.sh
+source ./install/install-appimagelauncher.sh
 #source ./install/install-zsh.sh
 
 # Gnome
 source ./gnome/settings.sh
-source ./gnome/install-extensions.sh
+# source ./gnome/install-extensions.sh
 
 echo "✨ Done"
