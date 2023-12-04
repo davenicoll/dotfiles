@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "The gnome-shell-extension-installer is no longer maintained."
+echo "This script will now exit. Install the extensions manually :("
+exit
+
 # install gnome extensions (use the gnome shell extension installer to get the latest version of extensions)
 curl --silent -o gnome-shell-extension-installer.sh -L https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer
 chmod +x gnome-shell-extension-installer.sh
