@@ -13,12 +13,9 @@ rm ~/Library/Fonts/JetBrainsMonoNLNerdFont*
 
 # Symlink font files
 for font_file in fonts/*.ttf; do
-    base_name=$(basename "$font_file")
-    echo "Symlinking $font_file to $HOME/Library/Fonts/$base_name"
-    ln -s "$PWD/$font_file" "$HOME/Library/Fonts/$base_name"
+  base_name=$(basename "$font_file")
+  ln -s "$PWD/$font_file" "$HOME/Library/Fonts/$base_name"
 done
-
-exit
 
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -118,7 +115,7 @@ EOF
 USERNAME=$(whoami)
 
 defaults write "com.apple.dock" "persistent-others" \
-    '<?xml version="1.0" encoding="UTF-8"?>
+  '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
