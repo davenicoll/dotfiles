@@ -1,4 +1,0 @@
-export PATH="$PATH:/home/$(whoami)/.local/bin"
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
