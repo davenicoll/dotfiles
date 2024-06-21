@@ -1,5 +1,5 @@
 wiki() {
-    ag -i -A 0 -B 0 -W 120 -m 1 -a -f --nonumbers --silent "$1" --color-match "34;49" /Users/dave/OneDrive\ -\ Slalom/Wiki
+    ag -i -A 0 -B 0 -W 120 -m 1 -a -f --nonumbers --silent "$1" --color-match "34;49" /Users/dave/Documents/slalom-kb
 }
 
 cheat() {
