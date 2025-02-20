@@ -49,7 +49,9 @@ cp -f com.apple.symbolichotkeys.plist ~/Library/Preferences/
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Disable Mission Control spaces (drag to screen top)
-defaults write com.apple.dock mcx-expose-disabled -bool TRUE && killall Dock
+defaults write com.apple.dock mcx-expose-disabled -bool true
+defaults write com.apple.spaces spans-displays -bool true
+killall Dock
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -59,9 +61,6 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Always show scrollbars
 defaults write "Apple Global Domain" AppleShowScrollBars -string Always
-
-# Disable click wallpaper to show desktop items
-defaults write com.apple.WindowManager EnableStandardClickToShowDesktop 0
 
 # Enable/disable menu bar items and set their position
 defaults write "com.apple.controlcenter" "NSStatusItem Preferred Position Battery" 260
@@ -84,8 +83,10 @@ defaults write "com.apple.controlcenter" "NSStatusItem Visible NowPlaying" 1
 defaults write "com.apple.controlcenter" "NSStatusItem Visible Sound" 1
 defaults write "com.apple.controlcenter" "NSStatusItem Visible WiFi" 1
 
-# Turn of desktop click / StageManager in Sonoma (and later)
-defaults write "com.apple.WindowManager" EnableStandardClickToShowDesktop 0
+# Disable click wallpaper to show desktop items
+defaults write "com.apple.WindowManager" EnableStandardClickToRevealDesktop -bool false
+defaults write "com.apple.WindowManager" EnableStandardClickToShowDesktop -bool false
+killall WindowManager
 
 # Turn off Siri
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false
