@@ -28,6 +28,11 @@ if [[ $(which brew | grep bin | wc -l) -eq 0 ]]; then
   export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
 fi
 
+if ! command -v brew &>/dev/null; then
+  echo "Error: Homebrew is not installed or not in PATH." >&2
+  exit 1
+fi
+
 # Install tools
 brew install \
   zsh-completions \
