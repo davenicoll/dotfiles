@@ -28,11 +28,53 @@ if [[ $(which brew | grep bin | wc -l) -eq 0 ]]; then
   export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
 fi
 
-# Install formulas
-brew install zsh-completions shellcheck eza fzf zoxide gh pyenv awscli tfenv az atmos checkov tfsec terraform-docs pre-commit yamlfmt yamllint yt-dlp ffmpeg helm btop htop jq yq lolcat figlet terraform-ls qemu progress bat k9s ansible
+# Install tools
+brew install \
+  zsh-completions \
+  eza \
+  fzf \
+  zoxide \
+  yt-dlp \
+  ffmpeg \
+  btop \
+  htop \
+  jq \
+  yq \
+  lolcat \
+  figlet \
+  progress \
+  bat \
+  tree \
+  nmap
 
+# Install coding & devops tools
+brew install \
+  shellcheck \
+  gh \
+  atmos \
+  tfenv \
+  az \
+  checkov \
+  tfsec \
+  terraform-docs \
+  awscli \
+  pyenv \
+  pre-commit \
+  yamlfmt \
+  yamllint \
+  helm \
+  terraform-ls \
+  qemu \
+  k9s \
+  ansible \
+  kubectl \
+  postman \
+  dagger \
+  uv \
+  openssl readline xz zlib
+  
 # Install casks
-brew install --cask mac-mouse-fix rectangle shottr raycast iterm2 monitorcontrol bitwarden angry-ip-scanner hex-fiend appcleaner vlc
+brew install --cask mac-mouse-fix rectangle shottr raycast iterm2 monitorcontrol bitwarden angry-ip-scanner hex-fiend appcleaner vlc angry-ip-scanner
 
 # Install powershell
 brew install powershell/tap/powershell
