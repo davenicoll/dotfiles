@@ -84,6 +84,7 @@ brew install --cask mac-mouse-fix rectangle shottr raycast iterm2 monitorcontrol
 
 # Install node tools (npx, pnpm, yarn, etc)
 npm install -g corepack
+corepack enable
 
 # Install powershell
 brew install powershell/tap/powershell
