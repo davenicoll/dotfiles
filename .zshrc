@@ -37,6 +37,13 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
 zinit snippet OMZP::azure
 zinit snippet OMZP::brew
+zinit snippet OMZP::node
+zinit snippet OMZP::nvm
+zinit snippet OMZP::npm
+zinit snippet OMZP::python
+zinit snippet OMZP::terraform
+zinit snippet OMZP::pyenv
+zinit snippet OMZP::yarn
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
@@ -98,3 +105,15 @@ eval "$(pyenv init --path)"
 # Set fzf defaults
 export FZF_DEFAULT_OPTS='-m --height 60% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.ignore --nocolor --hidden -g ""'
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
