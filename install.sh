@@ -65,7 +65,6 @@ brew install \
   awscli \
   pyenv \
   pre-commit \
-  node \
   yamlfmt \
   yamllint \
   helm \
@@ -82,7 +81,12 @@ brew install \
 # Install casks
 brew install --cask mac-mouse-fix rectangle shottr raycast iterm2 monitorcontrol bitwarden angry-ip-scanner hex-fiend appcleaner vlc angry-ip-scanner
 
-# Install node tools (npx, pnpm, yarn, etc)
+# Install node and related tools (npx, pnpm, yarn, etc)
+brew install nvm
+mkdir ~/.nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+nvm install node # install latest node
 npm install -g corepack
 corepack enable
 
