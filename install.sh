@@ -65,6 +65,7 @@ brew install \
   awscli \
   pyenv \
   pre-commit \
+  node \
   yamlfmt \
   yamllint \
   helm \
@@ -80,6 +81,9 @@ brew install \
   
 # Install casks
 brew install --cask mac-mouse-fix rectangle shottr raycast iterm2 monitorcontrol bitwarden angry-ip-scanner hex-fiend appcleaner vlc angry-ip-scanner
+
+# Install node tools (npx, pnpm, yarn, etc)
+npm install -g corepack
 
 # Install powershell
 brew install powershell/tap/powershell
