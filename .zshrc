@@ -99,7 +99,9 @@ alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 # Shell integrations
 source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
+
+# disabling zoxide for now, as it doesn't play well with claude code
+# eval "$(zoxide init --cmd cd zsh)"
 eval "$(pyenv init --path)"
 
 # Set fzf defaults
