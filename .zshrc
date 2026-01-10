@@ -90,6 +90,7 @@ zstyle ':completion:*' menu no
 zstyle ':completion:*:*:*' fzf-search-display true
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --no-quotes -lag --group-directories-first --icons -1 $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --no-quotes -lag --group-directories-first --icons -1 $realpath'
+zstyle ':fzf-tab:*' fzf-min-height 15
 
 # Aliases
 alias ls='eza -lag --group-directories-first --icons=auto'
@@ -118,4 +119,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+if command -v rbenv &> /dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
 
