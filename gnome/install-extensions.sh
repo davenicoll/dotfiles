@@ -1,30 +1,50 @@
 #!/bin/bash
+set -euo pipefail
 
-echo "The gnome-shell-extension-installer is no longer maintained."
-echo "This script will now exit. Install the extensions manually :("
-exit
+GNOME_VER=$(gnome-shell --version | grep -oP '^\D*\K\d+')
+BASE_URL="https://extensions.gnome.org"
 
-# install gnome extensions (use the gnome shell extension installer to get the latest version of extensions)
-curl --silent -o gnome-shell-extension-installer.sh -L https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer
-chmod +x gnome-shell-extension-installer.sh
+install_extension() {
+    local pk=$1
+    local description=$2
 
-./gnome-shell-extension-installer.sh 779 --yes # > /dev/null 2>&1 # 779 - clipboard indicator
-./gnome-shell-extension-installer.sh 906 --yes # > /dev/null 2>&1 # 906 - sound input & output device chooser
-./gnome-shell-extension-installer.sh 708 --yes # > /dev/null 2>&1 # 708 - Panel OSD
-./gnome-shell-extension-installer.sh 800 --yes # > /dev/null 2>&1 # 800 - remove dropdown arrows
-./gnome-shell-extension-installer.sh 355 --yes # > /dev/null 2>&1 # 355 - status area horizontal spacing
-./gnome-shell-extension-installer.sh 1007 --yes # > /dev/null 2>&1 # 1007 - window is ready - notification remover
-./gnome-shell-extension-installer.sh 2 --yes # > /dev/null 2>&1 # 2 - frippery move clock
+    echo "Installing: $description (pk=$pk, GNOME $GNOME_VER)..."
 
-# get all of the extension UUIDs and enable them
-for item in $(ls -1 $HOME/.local/share/gnome-shell/extensions)
-do
-    extensions=("'$item',$extensions")
-done
-gsettings set org.gnome.shell enabled-extensions "[${extensions::-1}]"
+    # Get extension info and extract UUID + version tag for our shell version
+    local info
+    info=$(curl -sf "$BASE_URL/extension-info/?pk=$pk&shell_version=$GNOME_VER")
 
-rm gnome-shell-extension-installer.sh
+    local uuid
+    uuid=$(echo "$info" | python3 -c "import json,sys; print(json.load(sys.stdin)['uuid'])")
 
-echo "****************************************************************"
-echo "You'll need to logout and log back in to enable gnome extensions"
-echo "****************************************************************"
+    local version_tag
+    version_tag=$(echo "$info" | python3 -c "
+import json,sys
+data = json.load(sys.stdin)
+vm = data.get('shell_version_map', {})
+if '$GNOME_VER' in vm:
+    print(vm['$GNOME_VER']['pk'])
+else:
+    print('NONE')
+")
+
+    if [ "$version_tag" = "NONE" ]; then
+        echo "  ERROR: No compatible version for GNOME $GNOME_VER"
+        return 1
+    fi
+
+    local zip="/tmp/${uuid}.zip"
+    curl -sfL -o "$zip" "$BASE_URL/download-extension/${uuid}.shell-extension.zip?version_tag=${version_tag}"
+
+    gnome-extensions install --force "$zip"
+    gnome-extensions enable "$uuid" 2>/dev/null || true
+    rm -f "$zip"
+
+    echo "  Done: $uuid"
+}
+
+install_extension 779 "Clipboard Indicator"
+install_extension 2 "Frippery Move Clock"
+
+echo ""
+echo "Extensions installed. Log out and back in (or restart GNOME Shell) to activate."
