@@ -10,6 +10,9 @@ ln -sf "$PWD/.functions" "$HOME/.functions"
 #ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
 ln -sf "$PWD/.path" "$HOME/.path"
 ln -sf "$PWD/.profile" "$HOME/.profile"
+ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
+ln -sf "$PWD/.zprofile" "$HOME/.zprofile"
+ln -sf "$PWD/.p10k.zsh" "$HOME/.p10k.zsh"
 
 # Install fonts
 if ! test -d "$HOME/.fonts/"; then mkdir "$HOME/.fonts"; fi
@@ -25,6 +28,9 @@ sudo apt update -qq && sudo apt upgrade -y -qq
 
 # Utils (needs to run before the other scripts, installs curl, wget, etc)
 source ./install/install-utils.sh
+
+# Shell
+source ./install/install-zsh.sh
 
 # Cloud tools
 source ./install/install-aws.sh

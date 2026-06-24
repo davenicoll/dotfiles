@@ -25,3 +25,11 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+fi
+
+. "$HOME/.cargo/env"

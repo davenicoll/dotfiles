@@ -15,6 +15,10 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# readline: case-insensitive completion, show ambiguous matches immediately
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -68,3 +72,4 @@ if command -v pyenv &> /dev/null; then
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
 fi
+. "$HOME/.cargo/env"
