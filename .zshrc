@@ -142,3 +142,10 @@ esac
 if command -v rbenv &> /dev/null; then
   eval "$(rbenv init - zsh)"
 fi
+
+# bun completions
+[ -s "/home/dev/.bun/_bun" ] && source "/home/dev/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
